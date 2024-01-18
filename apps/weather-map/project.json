@@ -2,7 +2,7 @@
   "name": "weather-map",
   "$schema": "../../node_modules/nx/schemas/project-schema.json",
   "projectType": "application",
-  "prefix": "angular-monorepo",
+  "prefix": "weather-map-monorepo",
   "sourceRoot": "apps/weather-map/src",
   "tags": [],
   "targets": {

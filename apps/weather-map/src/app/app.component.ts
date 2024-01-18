@@ -5,7 +5,7 @@ import { NxWelcomeComponent } from './nx-welcome.component';
 @Component({
   standalone: true,
   imports: [NxWelcomeComponent, RouterModule],
-  selector: 'angular-monorepo-root',
+  selector: 'weather-map-monorepo-root',
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss',
 })

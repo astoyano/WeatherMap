@@ -1,0 +1,30 @@
+{
+  "name": "weather-map-e2e",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "projectType": "application",
+  "sourceRoot": "apps/weather-map-e2e/src",
+  "targets": {
+    "e2e": {
+      "executor": "@nx/cypress:cypress",
+      "options": {
+        "cypressConfig": "apps/weather-map-e2e/cypress.config.ts",
+        "testingType": "e2e",
+        "devServerTarget": "weather-map:serve:development"
+      },
+      "configurations": {
+        "production": {
+          "devServerTarget": "weather-map:serve:production"
+        },
+        "ci": {
+          "devServerTarget": "weather-map:serve-static"
+        }
+      }
+    },
+    "lint": {
+      "executor": "@nx/eslint:lint",
+      "outputs": ["{options.outputFile}"]
+    }
+  },
+  "tags": [],
+  "implicitDependencies": ["weather-map"]
+}

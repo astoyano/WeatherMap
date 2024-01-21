@@ -1,0 +1,16 @@
+<div
+  class="weather-map-input-wrapper"
+  [ngClass]="'weather-map-input-wrapper-' + size + ' weather-map-input-wrapper-' + orientation"
+>
+  <label [for]="id" class="weather-map-input-label">{{ label }}</label>
+  <input
+    [(ngModel)]="value"
+    [name]="name"
+    type="text"
+    [placeholder]="placeholder"
+    [value]="value"
+    [id]="id"
+    class="weather-map-input"
+    (ngModelChange)="inputValueChangeHandler($event)"
+  />
+</div>

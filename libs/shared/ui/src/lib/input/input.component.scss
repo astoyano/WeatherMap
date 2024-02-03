@@ -41,6 +41,7 @@
   padding: $input-padding-y $input-padding-x;
   outline: none;
   transition: linear 0.25s;
+  width: 100%;
 
   &:hover,
   &:focus,
@@ -52,4 +53,6 @@
 
 .weather-map-input-label {
   margin-right: 10px;
+  text-wrap: nowrap;
+  color: $input-text-color;
 }

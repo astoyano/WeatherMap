@@ -1,6 +1,7 @@
-import { Component } from '@angular/core';
+import { Component} from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { WeatherMapSearchComponent } from '@weather-map-monorepo/shared-ui';
+
 
 @Component({
   selector: 'weather-map-header',

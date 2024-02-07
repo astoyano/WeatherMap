@@ -2,7 +2,7 @@
   class="weather-map-input-wrapper"
   [ngClass]="'weather-map-input-wrapper-' + size + ' weather-map-input-wrapper-' + orientation"
 >
-  <label [for]="id" class="weather-map-input-label">{{ label }}</label>
+  <label [for]="id" *ngIf="label" class="weather-map-input-label">{{ label }}</label>
   <input
     [(ngModel)]="value"
     [name]="name"

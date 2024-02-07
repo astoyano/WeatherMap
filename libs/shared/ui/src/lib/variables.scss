@@ -1,9 +1,11 @@
+$text-default: #f9f9f9;
+
 /**
 * INPUT
 **/
 $input-background: #373737;
 $input-border-color: #4a4a4a;
-$input-text-color: #f9f9f9;
+$input-text-color: $text-default;
 $input-background-hover: #2a2a2a;
 $input-border-color-hover: $input-border-color;
 
@@ -13,3 +15,16 @@ $input-padding-sm-y: 5px;
 $input-padding-sm-x: 15px;
 $input-padding-lg-y: 15px;
 $input-padding-lg-x: 25px;
+
+
+/**
+* DROPDOWN
+**/
+
+$dropdown-background: $input-background-hover;
+$dropdown-border-color: $input-border-color;
+$dropdown-color: $input-text-color;
+$dropdown-text-color: $text-default;
+$dropdown-item-hover: $input-background;
+$dropdown-padding-y: 10px;
+$dropdown-padding-x: 20px;

@@ -1,4 +1,7 @@
 /* You can add global styles to this file, and also import other style files */
+//@import '@weather-map-monorepo/shared-ui';
+
+@import '@angular/cdk/overlay-prebuilt.css';
 
 *, *::before, *::after {
     box-sizing: border-box;
@@ -11,4 +14,10 @@ body {
 
 a  {
     text-decoration: none;
+}
+
+button {
+    border: 0;
+    outline: none;
+    background-color: transparent;
 }

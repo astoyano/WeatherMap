@@ -27,8 +27,18 @@ export class WeatherMapInputComponent {
   @Input() orientation: 'vertical' | 'horizontal' = 'vertical';
 
   @Output() valueChange: EventEmitter<string> = new EventEmitter<string>();
+  @Output() onInputBlur: EventEmitter<FocusEvent> = new EventEmitter<FocusEvent>();
+  @Output() onInputFocus: EventEmitter<FocusEvent> = new EventEmitter<FocusEvent>();
 
   inputValueChangeHandler(value: string): void {
     this.valueChange.emit(value);
+  }
+
+  focusHandler(event: FocusEvent): void {
+    this.onInputFocus.emit(event);
+  }
+
+  blurHandler(event: FocusEvent): void {
+    this.onInputBlur.emit(event);
   }
 }

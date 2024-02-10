@@ -12,5 +12,7 @@
     [id]="id"
     class="weather-map-input"
     (ngModelChange)="inputValueChangeHandler($event)"
+    (focus)="focusHandler($event)"
+    (blur)="blurHandler($event)"
   />
 </div>

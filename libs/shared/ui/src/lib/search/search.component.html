@@ -1,25 +1,43 @@
-<div class="search-wrapper">
-  <weather-map-input
-    [(value)]="searchValue"
-    [placeholder]="'Search'"
-    cdkOverlayOrigin
-    #inputOrigin="cdkOverlayOrigin"
-    (valueChange)="valueChangeHandler()"
-  ></weather-map-input>
-</div>
-
-<ng-template
-  cdkConnectedOverlay
-  [cdkConnectedOverlayOrigin]="inputOrigin"
-  [cdkConnectedOverlayOpen]="isOpen"
-  [cdkConnectedOverlayWidth]="inputOrigin.elementRef.nativeElement.offsetWidth"
->
-  <div class="dropdown">
-    <p class="dropdown__results-text">{{ searchedData.length }} items found</p>
-    <div class="dropdown__results">
-      <ng-container *ngFor="let searchedItem of searchedData; let index = index">
-        <button class="dropdown__results-item">{{ searchedItem }}</button>
-      </ng-container>
+<weather-map-dropdown [openDropdown]="openDropdown">
+  <ng-template dropdownAnchor>
+    <div class="search-wrapper">
+      <weather-map-input
+        [(value)]="searchValue"
+        [placeholder]="'Search'"
+        (valueChange)="valueChangeHandler()"
+        (onInputFocus)="searchFieldFocusHandler()"
+        (onInputBlur)="searchFieldBlurHandler()"
+      ></weather-map-input>
     </div>
+  </ng-template>
+
+  <ng-template dropdownContent>
+    <ng-container *ngIf="!searchValue; else searchItemsTemplate" [ngTemplateOutlet]="initialItemsTemplate"></ng-container>
+  </ng-template>
+</weather-map-dropdown>
+
+<ng-template #initialItemsTemplate>
+  <p class="dropdown__results-text">All items {{ data.length }}</p>
+  <div class="dropdown__results">
+    <ng-container *ngFor="let item of data; let index = index">
+      <button class="dropdown__results-item">{{ item }}</button>
+    </ng-container>
   </div>
+</ng-template>
+
+<ng-template #searchItemsTemplate>
+  <p class="dropdown__results-text">
+    {{ searchedData.length }} items found
+  </p>
+  <div class="dropdown__results">
+    <ng-container *ngFor="let searchedItem of searchedData; let index = index">
+      <button class="dropdown__results-item">{{ searchedItem }}</button>
+    </ng-container>
+    
+    <ng-container *ngIf="!searchedData.length" [ngTemplateOutlet]="notItemsFoundTemplate"></ng-container>
+  </div>
+</ng-template>
+
+<ng-template #notItemsFoundTemplate>
+  <p class="dropdown__results-item">No items found</p>
 </ng-template>

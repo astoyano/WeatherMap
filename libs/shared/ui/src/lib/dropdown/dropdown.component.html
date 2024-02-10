@@ -1,0 +1,31 @@
+<div cdkOverlayOrigin
+#dropdownOrigin="cdkOverlayOrigin">
+  <ng-container
+    [ngTemplateOutlet]="dropdownAnchorDirective.templateRef"
+  ></ng-container>
+</div>
+
+<ng-template
+  cdkConnectedOverlay
+  [cdkConnectedOverlayOrigin]="dropdownOrigin"
+  [cdkConnectedOverlayOpen]="isOpen"
+  [cdkConnectedOverlayWidth]="dropdownOrigin.elementRef.nativeElement.offsetWidth"
+>
+  <div class="dropdown"
+  (click)="dropdownClickHandler($event)">
+    <ng-container *ngIf="!dropdownContentDirective; else customDropdownTemplate">
+      <p class="dropdown__results-text">2 items found</p>
+      <div class="dropdown__results">
+        <ng-container *ngFor="let searchedItem of [1, 2, 3, 4]">
+          <button class="dropdown__results-item">
+            item - {{ searchedItem }}
+          </button>
+        </ng-container>
+      </div>
+    </ng-container>
+  </div>
+</ng-template>
+
+<ng-template #customDropdownTemplate>
+  <ng-container [ngTemplateOutlet]="dropdownContentDirective.templateRef"> </ng-container> 
+</ng-template>

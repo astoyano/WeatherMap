@@ -28,4 +28,8 @@ export class WeatherMapSearchComponent {
   searchFieldBlurHandler(): void {
     this.openDropdown = false;
   }
+
+  trackByFn(index: number, item: unknown): number {
+    return index;
+  }
 }

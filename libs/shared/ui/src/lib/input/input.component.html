@@ -4,14 +4,13 @@
 >
   <label [for]="id" *ngIf="label" class="weather-map-input-label">{{ label }}</label>
   <input
-    [(ngModel)]="value"
+    [formControl]="controlValue"
     [name]="name"
     type="text"
     [placeholder]="placeholder"
     [value]="value"
     [id]="id"
     class="weather-map-input"
-    (ngModelChange)="inputValueChangeHandler($event)"
     (focus)="focusHandler($event)"
     (blur)="blurHandler($event)"
   />

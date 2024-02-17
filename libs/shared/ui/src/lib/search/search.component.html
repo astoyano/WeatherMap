@@ -19,7 +19,7 @@
 <ng-template #initialItemsTemplate>
   <p class="dropdown__results-text">All items {{ data.length }}</p>
   <div class="dropdown__results">
-    <ng-container *ngFor="let item of data; let index = index">
+    <ng-container *ngFor="let item of data; let index = index; trackBy: trackByFn">
       <button class="dropdown__results-item">{{ item }}</button>
     </ng-container>
   </div>
@@ -30,7 +30,7 @@
     {{ searchedData.length }} items found
   </p>
   <div class="dropdown__results">
-    <ng-container *ngFor="let searchedItem of searchedData; let index = index">
+    <ng-container *ngFor="let searchedItem of searchedData; let index = index; trackBy: trackByFn">
       <button class="dropdown__results-item">{{ searchedItem }}</button>
     </ng-container>
     
